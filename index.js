@@ -1,2 +1,4 @@
-// This is the first repo code
-console.logcommit("This is version 1.1.1.0")
+let num="lavanya"
+for(let i=num.length-1;i>=0;i--){
+    console.log(ile)
+}
