@@ -1,2 +1,2 @@
 // This is the first repo code
-console.log("This is version one")
+console.logcommit("This is version one")
