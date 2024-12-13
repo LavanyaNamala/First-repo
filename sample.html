@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+        #container {
+            width: 300px;
+            /* height: 400px; */
+            border: 2px dashed black;
+            display: grid;
+            gap: 5px;
+            padding: 10px;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .class {
+            width: 60px;
+            display: flex;
+            border: 2px solid greenyellow;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .class:nth-child(4n) {
+            background-color: rgb(106, 87, 168);
+            color: white;
+            font-size: larger;            
+        }
+        .class:nth-child(15) {
+            background-color: rgb(106, 87, 168);
+            color: white;
+            font-size: larger;
+        }
+        .class:nth-child(13) {
+            background-color: orange;
+            color: white;
+        }
+        .clas {
+            background-color: rgb(194, 180, 167);
+            grid-template-columns: (1, 1fr);
+        }
+        .h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .class:hover {
+            border-color: aquamarine;
+            transition: background-color 0.3s ease;
+            color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <!-- Add an empty grid space -->
+        <div></div>
+        <div class="class">1</div>
+        <div class="class">2</div>
+        <div class="class">3</div>
+        <div class="class">+</div>
+        <div class="class">4</div>
+        <div class="class">5</div>
+        <div class="class">6</div>
+        <div class="class">-</div>
+        <div class="class">7</div>
+        <div class="class">8</div>
+        <div class="class">9</div>
+        <div class="class">x</div>
+        <div class="class">c</div>
+        <div class="class">0</div>
+        <div class="class">=</div>
+        <div class="class">/</div>
+    </div>
+</body>
+</html>

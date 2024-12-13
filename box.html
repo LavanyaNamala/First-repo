@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+        #container {
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            width: 300px;
+            display:grid;
+            gap: 10px;
+            padding: 20px;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        #display {
+            grid-column: span 4;
+            border: 2px solid #ced4da;
+            border-radius: 10px;
+            height: 60px;
+            padding: 10px;
+            text-align: right;
+            font-size: 24px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            background-color: #fff;
+        }
+        .class {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            border-radius: 10px;
+            font-size: x-large;
+            font-weight: bold;
+            background-color: #e0e0e0;
+            cursor: pointer;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        .class:nth-child(4n+1) {
+            background-color: rgb(4, 1, 16);
+            color: white;
+        }
+        .class:nth-child(14) {
+            background-color: rgb(237, 19, 19);
+            color: white;
+            font-size: xx-large;
+        }
+        .class:hover {
+            background-color: #d0d0d0;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="display">0</div>
+        <div class="class">1</div>
+        <div class="class">2</div>
+        <div class="class">3</div>
+        <div class="class">+</div>
+        <div class="class">4</div>
+        <div class="class">5</div>
+        <div class="class">6</div>
+        <div class="class">-</div>
+        <div class="class">7</div>
+        <div class="class">8</div>
+        <div class="class">9</div>
+        <div class="class">x</div>
+        <div class="class">C</div>
+        <div class="class">0</div>
+        <div class="class">=</div>
+        <div class="class">/</div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+const buttons = document.querySelectorAll('.class');
+let currentInput = '';
+let previousInput = '';
+let operator = null;
+
+// Function to handle button clicks
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const value = button.textContent;
+
+        if (!isNaN(value) || value === '0') {
+            // If the button is a number
+            currentInput += value;
+            display.textContent = currentInput;
+        } else if (value === 'C') {
+            // Clear the display
+            currentInput = '';
+            previousInput = '';
+            operator = null;
+            display.textContent = '0';
+        } else if (value === '=') {
+            // Calculate the result
+            if (previousInput && currentInput && operator) {
+                const result = calculate(Number(previousInput), Number(currentInput), operator);
+                display.textContent = result;
+                currentInput = result.toString();
+                previousInput = '';
+                operator = null;
+            }
+        } else {
+            // If the button is an operator
+            if (currentInput) {
+                if (previousInput) {
+                    // Perform intermediate calculation if operator is pressed consecutively
+                    previousInput = calculate(Number(previousInput), Number(currentInput), operator).toString();
+                    display.textContent = previousInput;
+                } else {
+                    previousInput = currentInput;
+                }
+                operator = value === 'x' ? '*' : value; // Replace 'x' with '*'
+                currentInput = ''; // Clear current input for the next number
+            }
+        }
+    });
+});
+
+// Function to perform arithmetic operations
+function calculate(num1, num2, operator) {
+    switch (operator) {
+        case '+':
+            return num1 + num2;
+        case '-':
+            return num1 - num2;
+        case '*':
+            return num1 * num2;
+        case '/':
+            return num2 !== 0 ? num1 / num2 : 'Error';
+        default:
+            return num2;
+    }
+}
+
+    </script>
+</body>
+</html>

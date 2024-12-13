@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    
+    #con{
+      width: 700px;
+      border:2px dashed black;
+      display: grid;
+      gap:10px;
+      padding: 10px;
+      grid-template-columns: repeat(6,1fr);
+      
+    }
+    .child{
+      
+      width:120px;
+      height:30px;
+      /* border:1px solid rgb(61, 179, 197); */
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .child:nth-child(even){
+      background-color:pink;
+    }
+    .child:nth-child(odd){
+      background-color:rgb(235, 241, 127);
+    }
+    .child:nth-child(6n+1){
+      background-color:rgb(136, 220, 228);
+    }
+     
+    .child:nth-child(1){
+      visibility: hidden;
+    }
+    .child:last-child{
+      background-color: aqua;
+      width: 620%;
+      height: 20px;
+      align-items: start;
+      padding: 10px;
+    }
+   
+  </style>
+</head>
+<body>
+  <div id="con">
+    <div class="child"> </div>
+    <div class="child" style="font-weight: 700;">Monday</div>
+    <div class="child">Tuesday</div>
+    <div class="child"> Wednesday</div>
+    <div class="child"> Thursday</div>
+    <div class="child"> Friday</div>
+    <!--hr-->
+    <div class="child"> 8:00</div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"> 9:00</div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"> 10:00</div>
+    <div class="child "></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"> 11:00</div>
+    <div class="child "></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"> 12:00</div>
+    <div class="child "></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"> 1:00</div>
+    <div class="child "></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"> Note</div>
+  </div>
+</body>
+</html>
